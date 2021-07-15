@@ -1,7 +1,7 @@
 This is a Survey Site created by Fantastique4 - A team of four.
 
 Teammates:
-Marc Louis Gene De Guzman **
-Pradyumna Donekal **
-Rushitaben Shaileshbhai Patel **
-Suprem Vanam **
+Marc Louis Gene De Guzman <br />
+Pradyumna Donekal <br />
+Rushitaben Shaileshbhai Patel <br />
+Suprem Vanam <br />
