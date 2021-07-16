@@ -1,0 +1,56 @@
+<!-- Main Navigation -->
+<nav class="navbar navbar-expand-lg navbar-custom py-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/images/F4-New.png" alt="" width="270" height="37">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+
+            <% if (title == "Home"){ %>
+                <li class="nav-item active">
+            <% } else  { %>
+            <li class="nav-item">
+            <% } %>
+                <a class="nav-link" href="/" id="li-text-color"> Home </a>
+            </li>
+
+            <% if (title == "Create a Survey"){ %>
+                <li class="nav-item active">
+            <% } else  { %>
+            <li class="nav-item">
+            <% } %>
+                <a class="nav-link" href="/list/add" id="li-text-color"> Create </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#" id="li-text-color">My Survey</a>
+            </li>
+
+            <% if (title == "Open Surveys"){ %>
+                <li class="nav-item active">
+            <% } else  { %>
+            <li class="nav-item">
+            <% } %>
+                <a class="nav-link" href="/list" id="li-text-color"> Open Surveys </a>
+            </li>
+          
+            <% if (title == "Login"){ %>
+                <li class="nav-item active">
+            <% } else  { %>
+                <li class="nav-item">
+            <% } %>
+                <a class="nav-link" href="/login" id="li-text-color"> Login </a>
+            </li>
+
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
