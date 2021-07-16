@@ -6,31 +6,22 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Home' });
 });
 
-/* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', { title: 'Home' });
-});
-
-/* GET create survey page. */
-router.get('/create', function(req, res, next) {
-  res.render('index', { title: 'Create a Survey' });
-});
 
 /* GET my survey page. */
 router.get('/mysurvey', function(req, res, next) {
   res.render('index', { title: 'My Surveys' });
 });
 
-/* GET open surveys page. */
-router.get('/open', function(req, res, next) {
-  res.render('index', { title: 'Open Surveys' });
-});
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('index', { title: 'Login' });
+  res.render('partials/login', { title: 'Login' });
 });
 
+/* GET signup page. */
+router.get('/signup', function(req, res, next) {
+  res.render('partials/sign-up', { title: 'Signup' });
+});
 
 
 module.exports = router;
