@@ -6,10 +6,24 @@ let cookieParser = require('cookie-parser');
 let logger = require('morgan');
 
 let indexRouter = require('./routes/index');
+let surveyRouter = require('./routes/survey');
 let usersRouter = require('./routes/users');
 const exp = require('constants');
 
 let app = express();
+
+// database setup
+let mongoose = require('mongoose');
+let DB = require('./config/db');
+
+// point mongoose to the DB URI
+mongoose.connect(DB.URI, {useNewUrlParser : true, useUnifiedTopology : true});
+
+let mongodb = mongoose.connection;
+mongodb.on('error', console.error.bind(console, 'Connection Error:'));
+mongodb.once('open', ()=>{
+    console.log('Connected to MongoDB...');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -23,7 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules')));
 
 app.use('/', indexRouter);
-//app.use('/list', surveyRouter);
+app.use('/list', surveyRouter);
 app.use('/users', usersRouter);
 
 

@@ -27,11 +27,6 @@ router.get('/create', function(req, res, next) {
   res.render('partials/create-survey', { title: 'Create a Survey' });
 });
 
-router.get('/list', function(req, res, next) {
-  console.log('[routes.index.list] rendering open survey page');
-  res.render('partials/open-survey', { title: 'Open Surveys' });
-});
-
 router.get('/edit', function(req, res, next) {
   console.log('[routes.index.edit] rendering edit survey page');
   res.render('partials/edit-survey', { title: 'Edit a Survey' });
