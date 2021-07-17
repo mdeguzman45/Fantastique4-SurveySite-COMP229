@@ -12,7 +12,6 @@ router.get('/mysurvey', function(req, res, next) {
   res.render('index', { title: 'My Surveys' });
 });
 
-
 /* GET login page. */
 router.get('/login', function(req, res, next) {
   res.render('partials/login', { title: 'Login' });
