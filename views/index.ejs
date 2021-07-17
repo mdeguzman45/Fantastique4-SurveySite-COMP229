@@ -1,51 +1,17 @@
 <%- include partials/header.ejs %>
 
-<!DOCTYPE html>
-<html lang="en">
+<%- include partials/main_nav.ejs %>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    <%= title %>
-  </title>
-  <!-- CSS Section -->
-  <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/@fortawesome/fontawesome-free/css/all.min.css">
-  <link rel='stylesheet' href='/content/app.css' />
-</head>
+  <main class="center">
+    <p class="lead" style="font-size: 3em;">Welcome to</p>
 
-<body>
-  <!-- Main Nav Here -->
-  <nav class="navbar navbar-expand-lg navbar-custom py-3">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="/assets/images/F4-New.png" alt="" width="270" height="37">
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" id="li-text-color">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" id="li-text-color">Create</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" id="li-text-color">My Survey</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" id="li-text-color">Open Surveys</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#" id="li-text-color">Login</a>
-          </li>
-        </ul>
+    <img src="/assets/images/F4-New.png" class="img-fluid" alt="" width="800" height="100">
+    <p class="lead" style="font-size: 3em;">Survey Site</p>
 
-      </div>
-    </div>
-  </nav>
+    <br />
+    <a href="list/add" class="btn btn-danger shadow-none custom-button">TAKE A SURVEY</a>
+  </main>
+
+<%- include partials/bottom_nav.ejs %>
+
+<%- include partials/footer.ejs %>
