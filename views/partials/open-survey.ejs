@@ -15,20 +15,22 @@
                     </thead>
                     <tbody>
 
-                     
+                      <% for(let count =0; count < SurveyList.length; count++) { %>
                       <tr>
-                        <td scope="row"><p>Covid Survey </p></td>
+                        <td scope="row"><p><%= SurveyList[count].name %></p></td>
                         <td>
                             <div class="text-center">
                                 <a href="/take" class="btn btn-primary shadow-none take-button m-2">Take Survey</a>
-                               <a href="/edit" class="btn btn-warning shadow-none edit-button m-2">Edit</a>
+                              <!--<a href="list/edit/<%= SurveyList[count]._id %>" class="btn btn-warning shadow-none edit-button m-2">Edit</a>
+                              <a href="list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger shadow-none delete-button m-2">Delete</a>-->
+                               <a href="list/edit/<%= SurveyList[count]._id %>" class="btn btn-warning shadow-none edit-button m-2">Edit</a>
 
-                               <a href="#" class="btn btn-danger shadow-none delete-button m-2">Delete</a>
+                               <a href="list/delete/<%= SurveyList[count]._id %>" class="btn btn-danger shadow-none delete-button m-2">Delete</a>
 
                             </div>
                         </td>
                       </tr>
-                     
+                      <% }  %>
                       
                     </tbody>
                   </table>
