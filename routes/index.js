@@ -23,5 +23,20 @@ router.get('/signup', function(req, res, next) {
   res.render('partials/sign-up', { title: 'Signup' });
 });
 
+router.get('/create', function(req, res, next) {
+  res.render('partials/create-survey', { title: 'Create a Survey' });
+});
+
+router.get('/list', function(req, res, next) {
+  res.render('partials/open-survey', { title: 'Open Surveys' });
+});
+
+router.get('/edit', function(req, res, next) {
+  res.render('partials/edit-survey', { title: 'Edit a Survey' });
+});
+
+router.get('/take', function(req, res, next) {
+  res.render('partials/take-survey', { title: 'Take a Survey' });
+});
 
 module.exports = router;
