@@ -1,12 +1,13 @@
+//require modules for the controller
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
+//create a reference to the model
 let Survey = require('../models/survey');
 
 /* GET open surveys page. */
-router.get('/', function(req, res, next) {
-
+module.exports.displayOpenSurveys = (req, res, next) => {
     Survey.find((err, surveyList) => {
         if(err)
         {
@@ -18,21 +19,22 @@ router.get('/', function(req, res, next) {
             {
             title: 'Open Surveys', 
             SurveyList: surveyList,
+            displayName: req.user ? req.user.displayName : ''
         });
         }
     });
-   // res.render('partials/open-survey', { title: 'Open Surveys' });
-
-});
-
+}
 
 /* GET create survey page. */
-router.get('/add', function(req, res, next) {
-    res.render('partials/create-survey', { title: 'Create a Survey' });
-  });
+module.exports.displayAddSurveyPage = (req, res, next) => {
+    res.render('partials/create-survey', { 
+        title: 'Create a Survey',
+        displayName: req.user ? req.user.displayName : ''
+     });
+}
 
-
-router.post('/add', function(req, res, next) {
+/* POST create survey page */
+module.exports.processAddSurvey = (req, res, next) => {
     
     let newSurvey = Survey({
         "name": req.body.name,
@@ -46,45 +48,44 @@ router.post('/add', function(req, res, next) {
     Survey.create(newSurvey, (err, Survey) =>{
         if(err)
         {
-            console.log(err);
-            res.end(err);
+            return console.log(err);
+            // res.end(err);
         }
         else
         {
-            //refresh the contactlist
+            //refresh the survey list
             res.redirect('/list');
         }
     });
+}
 
-});
+/* GET edit survey page */
+module.exports.displayEditSurveyPage = (req, res, next) => {
 
-//edit the survey
-router.get('/edit/:id', function(req, res){
-
-   // res.send('Edit Page');
-
-    let id = req.params.id;
-
-    Survey.findById(id, (err, surveyToEdit) =>{
+    // res.send('Edit Page');
+ 
+     let id = req.params.id;
+ 
+     Survey.findById(id, (err, surveyToEdit) => {
         if(err)
         {
-            console.log(err);
-            res.end(err);
+            return  console.log(err);
+            // res.end(err);
         }
-        else{
+         else{
             //show the edit view
             res.render('partials/edit-survey', 
-            {title: 'Edit Survey', 
-            survey: surveyToEdit, 
-        })
+            {
+                title: 'Edit Survey', 
+                survey: surveyToEdit,
+                displayName: req.user ? req.user.displayName : ''
+            })
         }
     });
+}
 
-});
-
-
-//update the survey 
-router.post('/edit/:id', function(req, res){
+/* POST edit survey page */
+module.exports.processEditSurvey = (req, res, next) => {
 
     let id = req.params.id;
     
@@ -96,14 +97,13 @@ router.post('/edit/:id', function(req, res){
         "q2": req.body.q2,
         "q3":req.body.q3,
         "q4":req.body.q4,
-        
     });
 
     Survey.updateOne({_id: id}, updatedSurvey, (err) => {
         if(err)
         {
-            console.log(err);
-            res.end(err);
+            return console.log(err);
+            // res.end(err);
         }
         else
         {
@@ -111,20 +111,17 @@ router.post('/edit/:id', function(req, res){
             res.redirect('/list');
         }
     });
- 
- });
+}
 
-
-//delete the survey
-router.get('/delete/:id', function(req, res){
+/* POST Delete Survey */
+module.exports.deleteSurvey = (req, res, next) => {
 
     let id = req.params.id;
 
     Survey.remove({_id: id}, (err) => {
         if(err)
         {
-            console.log(err);
-            res.end(err);
+            return console.log(err);
         }
         else
         {
@@ -133,9 +130,4 @@ router.get('/delete/:id', function(req, res){
         }
 
     });
-
-});
-
-
-
-module.exports = router;
+}
