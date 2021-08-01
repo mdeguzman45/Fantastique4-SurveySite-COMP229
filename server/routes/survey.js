@@ -17,7 +17,7 @@ function requireAuth(req, res, next) {
 let surveyController = require('../controllers/survey');
 
 /* GET open surveys page. */
-router.get('/', requireAuth, surveyController.displayOpenSurveys);
+router.get('/', surveyController.displayOpenSurveys);
 
 /* GET create survey page. */
 router.get('/add', requireAuth, surveyController.displayAddSurveyPage);
@@ -25,16 +25,22 @@ router.get('/add', requireAuth, surveyController.displayAddSurveyPage);
 /* POST create survey page */
 router.post('/add', requireAuth, surveyController.processAddSurvey);
 
+/* GET create survey page. */
+router.get('/mysurvey', requireAuth, surveyController.displayMySurveyPage);
+
+/* GET Take survey page. */
+router.get('/take/:id', surveyController.displayTakeSurveyPage);
+
+/* GET Take survey page. */
+router.post('/take/:id', surveyController.processTakeSurveyPage);
+
+
 //edit the survey
 router.get('/edit/:id', requireAuth, surveyController.displayEditSurveyPage);
 
 //update the survey 
 router.post('/edit/:id', requireAuth, surveyController.processEditSurvey);
 
-//take survey
-router.get('/take', requireAuth, function(req, res, next) {
-    res.render('partials/take-survey', { title: 'Take a Survey' });
-});
 
 //delete the survey
 router.get('/delete/:id', requireAuth, surveyController.deleteSurvey);
