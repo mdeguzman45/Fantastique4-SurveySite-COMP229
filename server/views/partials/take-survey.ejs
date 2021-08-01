@@ -6,26 +6,35 @@
       <div class="row justify-content-md-center">
           <div class="col-lg-6">
               <h1 class="lead text-center text-heading">Take A Survey</h1>
-              <form  method="#">
+              <form  method="POST">
+                <input type="hidden" class="form-control" name="id" value="<%= survey.id %>">
+                <div class="mb-3">
+                  <label class="form-label">Your Full Name:</label>
+                  <input type="text" class="form-control"  required name="name" placeholder="Your Full Name">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Your Contact Number:</label>
+                  <input type="text" class="form-control" required name="phone" placeholder="Contact Number">
+                </div>
+                  <!-- <div class="mb-3">
+                    <label class="form-label"><%= survey.name %></label>
+                    <input type="text" class="form-control" name="name"  readonly value="<%= survey.name %>">
+                  </div> -->
                   <div class="mb-3">
-                    <label class="form-label">Survey Name</label>
-                    <input type="text" class="form-control" name="name" value="Survey Name">
+                    <label class="form-label"><%= survey.q1 %></label>
+                    <input type="text" class="form-control" required name="a1" placeholder="Answer" >
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Question 1</label>
-                    <input type="text" class="form-control" name="q1" placeholder="Answer">
+                    <label class="form-label"><%= survey.q2 %></label>
+                    <input type="text" class="form-control" required name="a2" placeholder="Answer">
                   </div>
                   <div class="mb-3">
-                    <label class="form-label">Question 2</label>
-                    <input type="text" class="form-control" name="q2" placeholder="Answer">
-                  </div>
-                  <div class="mb-3">
-                    <label class="form-label">Question 3</label>
-                    <input type="text" class="form-control" name="q3" placeholder="Answer">
+                    <label class="form-label"><%= survey.q3 %></label>
+                    <input type="text" class="form-control" required name="a3" placeholder="Answer">
                   </div>
                   <div class="mb-5">
-                    <label class="form-label">Question 4</label>
-                    <input type="text" class="form-control" name="q4" placeholder="Answer">
+                    <label class="form-label"><%= survey.q4 %></label>
+                    <input type="text" class="form-control" required name="a4" placeholder="Answer">
                   </div>
                   <div class="text-center">
                       <button type="submit" class="btn btn-primary shadow-none custom-button"><strong>Submit Now</strong></button>
