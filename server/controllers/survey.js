@@ -104,7 +104,14 @@ module.exports.processTakeSurveyPage = (req, res, next) => {
                     else
                     {
                         //refresh the survey list
-                        res.redirect('/list');
+                        // res.redirect('/list');
+                        res.render('partials/survey-response', 
+                        {
+                            title: 'Survey Response', 
+                            survey: surveyToFill,
+                            surveyResponse: fillSurvey,
+                            displayName: req.user ? req.user.displayName : '',
+                        });
                     }
 
                 });
